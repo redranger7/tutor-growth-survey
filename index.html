@@ -2,501 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tutor Growth Assessment 2026 | Professional SaaS Survey</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      background: #070C1F;
-      font-family: 'Inter', sans-serif;
-      color: #F0F4FF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .app {
-      width: 100%;
-      max-width: 500px;
-      height: 100%;
-      max-height: 100vh;
-      background: radial-gradient(circle at 10% 20%, #0B132B, #050A18);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      margin: 0 auto;
-      box-shadow: 0 0 40px rgba(0,0,0,0.3);
-    }
-
-    .progress-section {
-      flex-shrink: 0;
-      padding: 14px 18px 6px 18px;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      font-weight: 600;
-      color: #98A9C7;
-      margin-bottom: 6px;
-    }
-
-    .time-badge {
-      background: rgba(45,212,191,0.15);
-      padding: 3px 8px;
-      border-radius: 50px;
-      font-size: 10px;
-      font-weight: 500;
-      color: #5EEAD4;
-    }
-
-    .progress-bar-bg {
-      background: #1E2A47;
-      border-radius: 40px;
-      height: 5px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 40px;
-      background: linear-gradient(90deg, #2DD4BF, #14B8A6, #2DD4BF);
-      background-size: 200% auto;
-      transition: width 0.4s ease;
-    }
-
-    .slides-container {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      position: relative;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .slides-track {
-      display: flex;
-      transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.4, 1);
-      will-change: transform;
-    }
-
-    .slide {
-      flex: 0 0 100%;
-      padding: 10px 16px 10px 16px;
-    }
-
-    .card {
-      background: rgba(12,22,45,0.85);
-      backdrop-filter: blur(8px);
-      border-radius: 26px;
-      padding: 18px 18px;
-      border: 1px solid rgba(45,212,191,0.25);
-      box-shadow: 0 12px 25px -10px rgba(0,0,0,0.4);
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #FFF, #A5F3EE);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 6px;
-      letter-spacing: -0.3px;
-    }
-
-    .welcome-icon {
-      text-align: center;
-      margin: 8px 0;
-    }
-    .welcome-icon i {
-      font-size: 2.2rem;
-      color: #5EEAD4;
-    }
-
-    .welcome-text {
-      margin: 8px 0;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      color: #CDDFFF;
-    }
-
-    .benefits-list {
-      background: rgba(45,212,191,0.08);
-      border-radius: 18px;
-      padding: 12px 14px;
-      margin: 12px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.75rem;
-      color: #E0F2FE;
-    }
-
-    .benefit-item i {
-      width: 20px;
-      color: #5EEAD4;
-      font-size: 0.8rem;
-    }
-
-    .question-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-
-    .question-text i {
-      color: #5EEAD4;
-      margin-right: 8px;
-      font-size: 1.1rem;
-    }
-
-    .tournament-question {
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 12px;
-      color: #E0F2FE;
-      background: rgba(45,212,191,0.1);
-      padding: 8px;
-      border-radius: 22px;
-    }
-
-    .matchup-label {
-      text-align: center;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      color: #5EEAD4;
-      background: rgba(45,212,191,0.12);
-      display: inline-block;
-      width: auto;
-      padding: 3px 12px;
-      border-radius: 40px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .multi-hint {
-      font-size: 10px;
-      margin-bottom: 12px;
-      color: #7F9BCB;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(45,212,191,0.08);
-      padding: 4px 8px;
-      border-radius: 40px;
-      width: fit-content;
-    }
-
-    .options-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .option-btn {
-      background: #0F1A36;
-      border: 1px solid #2C3E66;
-      border-radius: 50px;
-      padding: 10px 14px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      color: #E2ECFF;
-      transition: all 0.2s ease;
-    }
-
-    .option-btn i:first-child {
-      width: 22px;
-      font-size: 0.9rem;
-      color: #5EEAD4;
-    }
-
-    .option-btn .check-icon {
-      margin-left: auto;
-      color: #2DD4BF;
-      font-size: 0.8rem;
-    }
-
-    .option-btn.selected {
-      background: #1E3A5F;
-      border-color: #2DD4BF;
-      box-shadow: 0 0 0 2px rgba(45,212,191,0.4);
-    }
-
-    .reset-btn {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #FF6B6B40;
-      border-radius: 40px;
-      padding: 5px 10px;
-      font-size: 9px;
-      color: #FFA6A6;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 8px;
-      transition: 0.2s;
-    }
-    .reset-btn:hover {
-      background: rgba(255,107,107,0.15);
-    }
-
-    .matchup-card {
-      background: linear-gradient(145deg, #0C1535, #07102A);
-      border-radius: 26px;
-      padding: 14px 12px;
-      margin-bottom: 10px;
-      border: 1px solid rgba(45,212,191,0.3);
-    }
-
-    .matchup-card.matchup-transition {
-      animation: cardPulse 0.4s ease;
-    }
-
-    @keyframes cardPulse {
-      0% { transform: scale(0.98); opacity: 0.7; }
-      70% { transform: scale(1.01); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .vs-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .vs-option {
-      background: #101B3C;
-      border-radius: 22px;
-      padding: 10px 6px;
-      flex: 1;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid #2C4070;
-    }
-
-    .vs-option i {
-      font-size: 1.2rem;
-      display: block;
-      margin-bottom: 5px;
-      color: #5EEAD4;
-    }
-
-    .vs-option strong {
-      font-size: 0.7rem;
-      display: block;
-      font-weight: 600;
-    }
-
-    .vs-option.selected {
-      background: linear-gradient(135deg, #1B4E5F, #0F3A48);
-      border-color: #5EEAD4;
-      box-shadow: 0 0 8px rgba(45,212,191,0.5);
-      transform: scale(1.01);
-    }
-
-    .vs-middle {
-      font-weight: 800;
-      font-size: 0.75rem;
-      background: #2DD4BF20;
-      padding: 3px 6px;
-      border-radius: 50px;
-      color: #7EF4E2;
-    }
-
-    .rating-scale {
-      display: flex;
-      justify-content: space-between;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-
-    .rating-btn {
-      background: #0F1A36;
-      border-radius: 50px;
-      padding: 7px 0;
-      flex: 1;
-      text-align: center;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.1s;
-      border: 1px solid #2C3E66;
-      font-size: 0.65rem;
-      line-height: 1.2;
-    }
-
-    .rating-btn.selected {
-      background: #2DD4BF;
-      color: #0A1128;
-      box-shadow: 0 0 5px #2DD4BF;
-      border-color: #2DD4BF;
-    }
-
-    .sticky-next {
-      flex-shrink: 0;
-      background: #050C1C;
-      padding: 10px 16px 14px;
-      border-top: 1px solid #1F2D4A;
-    }
-
-    .next-btn {
-      background: linear-gradient(90deg, #2DD4BF, #14B8A6);
-      border: none;
-      width: 100%;
-      padding: 12px 0;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #0A1128;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: 0.2s;
-    }
-
-    .next-btn:active {
-      transform: scale(0.97);
-    }
-
-    .next-btn.disabled {
-      opacity: 0.4;
-      pointer-events: none;
-      cursor: not-allowed;
-    }
-
-    .next-btn.submitting {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    .next-btn.submitting i.fa-arrow-right {
-      display: none;
-    }
-    .next-btn.submitting::after {
-      content: "";
-      width: 16px;
-      height: 16px;
-      border: 2px solid #0A1128;
-      border-top-color: transparent;
-      border-radius: 50%;
-      display: inline-block;
-      animation: spin 0.8s linear infinite;
-      margin-left: 6px;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .insight-card {
-      background: rgba(13,28,55,0.8);
-      border-radius: 18px;
-      padding: 8px;
-      margin: 6px 0;
-      border-left: 3px solid #2DD4BF;
-      font-size: 0.75rem;
-    }
-
-    input, textarea {
-      background: #0F1A36;
-      border: 1px solid #2C4468;
-      border-radius: 50px;
-      padding: 10px 14px;
-      width: 100%;
-      color: white;
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    textarea {
-      border-radius: 16px;
-      resize: vertical;
-    }
-
-    footer {
-      flex-shrink: 0;
-      font-size: 8px;
-      text-align: center;
-      padding: 5px;
-      color: #4A5B7A;
-    }
-
-    .hidden-next {
-      display: none !important;
-    }
-
-    .optional-badge {
-      font-size: 8px;
-      background: rgba(45,212,191,0.15);
-      padding: 2px 6px;
-      border-radius: 30px;
-      margin-left: 6px;
-      font-weight: normal;
-    }
-
-    /* Custom scrollbar - subtle */
-    .slides-container::-webkit-scrollbar {
-      width: 3px;
-    }
-    .slides-container::-webkit-scrollbar-track {
-      background: #1E2A47;
-    }
-    .slides-container::-webkit-scrollbar-thumb {
-      background: #2DD4BF;
-      border-radius: 10px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #070C1F; font-family: 'Inter', sans-serif; color: #F0F4FF; overflow-x: hidden; }
+    .app { max-width: 550px; margin: 0 auto; min-height: 100vh; background: radial-gradient(circle at 10% 20%, #0B132B, #050A18); display: flex; flex-direction: column; }
+    .progress-section { padding: 16px 20px 8px 20px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: #98A9C7; margin-bottom: 8px; }
+    .time-badge { background: rgba(45,212,191,0.15); padding: 4px 10px; border-radius: 50px; font-size: 11px; font-weight: 500; color: #5EEAD4; }
+    .progress-bar-bg { background: #1E2A47; border-radius: 40px; height: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0%; border-radius: 40px; background: linear-gradient(90deg, #2DD4BF, #14B8A6, #2DD4BF); background-size: 200% auto; transition: width 0.5s cubic-bezier(0.2,0.9,0.4,1.2); }
+    .slides-container { flex: 1; overflow: hidden; position: relative; }
+    .slides-track { display: flex; transition: transform 0.4s cubic-bezier(0.2,0.85,0.4,1); will-change: transform; }
+    .slide { flex: 0 0 100%; padding: 12px 20px 20px 20px; }
+    .card { background: rgba(12,22,45,0.85); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 32px; padding: 28px 24px; border: 1px solid rgba(45,212,191,0.25); box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5); }
+    h2 { font-size: 1.6rem; font-weight: 700; background: linear-gradient(135deg,#FFF,#A5F3EE); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 8px; letter-spacing: -0.3px; }
+    .welcome-icon { text-align: center; margin: 16px 0; }
+    .welcome-icon i { font-size: 3rem; color: #5EEAD4; }
+    .welcome-text { margin: 14px 0; font-size: 0.95rem; line-height: 1.5; color: #CDDFFF; }
+    .benefits-list { background: rgba(45,212,191,0.08); border-radius: 24px; padding: 16px 18px; margin: 18px 0; display: flex; flex-direction: column; gap: 10px; }
+    .benefit-item { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #E0F2FE; }
+    .benefit-item i { width: 22px; color: #5EEAD4; font-size: 0.9rem; }
+    .question-text { font-size: 1.3rem; font-weight: 600; line-height: 1.4; margin-bottom: 18px; }
+    .question-text i { color: #5EEAD4; margin-right: 10px; font-size: 1.2rem; }
+    .tournament-question { font-size: 1.3rem; font-weight: 700; text-align: center; margin-bottom: 18px; color: #E0F2FE; background: rgba(45,212,191,0.1); padding: 12px; border-radius: 28px; }
+    .matchup-label { text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 1px; margin-bottom: 12px; color: #5EEAD4; background: rgba(45,212,191,0.12); display: inline-block; width: auto; padding: 4px 16px; border-radius: 40px; margin-left: auto; margin-right: auto; }
+    .multi-hint { font-size: 11px; margin-bottom: 16px; color: #7F9BCB; display: flex; align-items: center; gap: 8px; background: rgba(45,212,191,0.08); padding: 5px 10px; border-radius: 40px; width: fit-content; }
+    .options-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+    .option-btn { background: #0F1A36; border: 1px solid #2C3E66; border-radius: 50px; padding: 13px 16px; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 12px; cursor: pointer; color: #E2ECFF; transition: all 0.2s ease; }
+    .option-btn i:first-child { width: 24px; font-size: 1rem; color: #5EEAD4; }
+    .option-btn .check-icon { margin-left: auto; color: #2DD4BF; font-size: 0.9rem; }
+    .option-btn.selected { background: #1E3A5F; border-color: #2DD4BF; box-shadow: 0 0 0 2px rgba(45,212,191,0.4); }
+    .reset-btn { background: rgba(255,255,255,0.05); border: 1px solid #FF6B6B40; border-radius: 40px; padding: 7px 12px; font-size: 10px; color: #FFA6A6; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; transition: 0.2s; }
+    .reset-btn:hover { background: rgba(255,107,107,0.15); }
+    .matchup-card { background: linear-gradient(145deg,#0C1535,#07102A); border-radius: 32px; padding: 20px 16px; margin-bottom: 14px; border: 1px solid rgba(45,212,191,0.3); transition: all 0.3s; }
+    .matchup-card.matchup-transition { animation: cardPulse 0.5s cubic-bezier(0.2,0.9,0.6,1.1); }
+    @keyframes cardPulse { 0% { transform: scale(0.98); opacity: 0.6; box-shadow: 0 0 0 0 #2DD4BF; } 70% { transform: scale(1.01); box-shadow: 0 0 0 6px rgba(45,212,191,0.2); } 100% { transform: scale(1); opacity: 1; } }
+    .vs-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .vs-option { background: #101B3C; border-radius: 26px; padding: 16px 10px; flex: 1; text-align: center; cursor: pointer; transition: all 0.2s ease; border: 1px solid #2C4070; }
+    .vs-option i { font-size: 1.6rem; display: block; margin-bottom: 10px; color: #5EEAD4; }
+    .vs-option strong { font-size: 0.85rem; display: block; font-weight: 600; }
+    .vs-option.selected { background: linear-gradient(135deg,#1B4E5F,#0F3A48); border-color: #5EEAD4; box-shadow: 0 0 10px rgba(45,212,191,0.6); transform: scale(1.01); }
+    .vs-middle { font-weight: 800; font-size: 0.9rem; background: #2DD4BF20; padding: 5px 8px; border-radius: 50px; color: #7EF4E2; }
+    .rating-scale { display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+    .rating-btn { background: #0F1A36; border-radius: 50px; padding: 10px 0; flex: 1; text-align: center; font-weight: 600; cursor: pointer; transition: 0.1s; border: 1px solid #2C3E66; font-size: 0.75rem; line-height: 1.3; }
+    .rating-btn.selected { background: #2DD4BF; color: #0A1128; box-shadow: 0 0 6px #2DD4BF; border-color: #2DD4BF; }
+    .sticky-next { background: #050C1C; padding: 10px 20px 18px; border-top: 1px solid #1F2D4A; }
+    .next-btn { background: linear-gradient(90deg,#2DD4BF,#14B8A6); border: none; width: 100%; padding: 14px 0; border-radius: 60px; font-weight: 700; font-size: 0.95rem; color: #0A1128; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+    .next-btn:active { transform: scale(0.97); }
+    .next-btn.disabled { opacity: 0.4; pointer-events: none; cursor: not-allowed; }
+    .next-btn.submitting { opacity: 0.7; pointer-events: none; }
+    .next-btn.submitting i.fa-arrow-right { display: none; }
+    .next-btn.submitting::after { content: ""; width: 18px; height: 18px; border: 2px solid #0A1128; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.8s linear infinite; margin-left: 8px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .insight-card { background: rgba(13,28,55,0.8); border-radius: 22px; padding: 12px; margin: 10px 0; border-left: 4px solid #2DD4BF; font-size: 0.85rem; }
+    input, textarea { background: #0F1A36; border: 1px solid #2C4468; border-radius: 50px; padding: 13px 16px; width: 100%; color: white; font-size: 0.9rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+    textarea { border-radius: 20px; resize: vertical; }
+    footer { font-size: 9px; text-align: center; padding: 8px; color: #4A5B7A; }
+    .hidden-next { display: none !important; }
+    .optional-badge { font-size: 10px; background: rgba(45,212,191,0.15); padding: 2px 8px; border-radius: 30px; margin-left: 8px; font-weight: normal; }
+    @media (max-width:480px){ .card{padding:20px 16px;} .question-text{font-size:1.15rem;} .tournament-question{font-size:1.15rem;} .option-btn{padding:11px 14px;font-size:0.8rem;} .vs-option{padding:12px 8px;} .vs-option i{font-size:1.3rem;} .welcome-text{font-size:0.85rem;} .rating-btn{font-size:0.65rem;} }
   </style>
 </head>
 <body>
 <div class="app">
   <div class="progress-section">
-    <div class="progress-label">
-      <span><i class="fas fa-chart-line"></i> Your growth journey</span>
-      <span class="time-badge"><i class="far fa-hourglass-half"></i> ~3 min</span>
-    </div>
-    <div class="progress-bar-bg">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
+    <div class="progress-label"><span><i class="fas fa-chart-line"></i> Your growth journey</span><span class="time-badge"><i class="far fa-hourglass-half"></i> ~3 min</span></div>
+    <div class="progress-bar-bg"><div class="progress-fill" id="progressFill"></div></div>
   </div>
-
-  <div class="slides-container">
-    <div class="slides-track" id="slidesTrack"></div>
-  </div>
-
-  <div class="sticky-next" id="stickyNextContainer">
-    <button class="next-btn disabled" id="nextBtn"><i class="fas fa-arrow-right"></i> Next</button>
-  </div>
+  <div class="slides-container"><div class="slides-track" id="slidesTrack"></div></div>
+  <div class="sticky-next" id="stickyNextContainer"><button class="next-btn disabled" id="nextBtn"><i class="fas fa-arrow-right"></i> Next</button></div>
   <footer>Professional assessment · actionable insights</footer>
 </div>
 
@@ -569,11 +147,7 @@
     return count;
   }
 
-  function updateProgress() { 
-    const completed = getCompletedAnswerCount();
-    const percent = (completed / totalAnswerScreens) * 100;
-    document.getElementById('progressFill').style.width = `${percent}%`;
-  }
+  function updateProgress() { document.getElementById('progressFill').style.width = `${(getCompletedAnswerCount() / totalAnswerScreens) * 100}%`; }
 
   function isCurrentScreenAnswered() {
     const screen = screens[currentIndex];
@@ -667,15 +241,96 @@
 
   function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
+  function getImprovementIcon(value) {
+  const icons = {
+    'Understand students better': 'fa-brain',
+    'Save time': 'fa-clock',
+    'Reduce parent questions': 'fa-message',
+    'Reduce student dropouts': 'fa-heart',
+    'Get more admissions': 'fa-user-plus'
+  };
+
+  return icons[value] || 'fa-star';
+}
+
   function renderImprovementTournament() {
-    const matchup = improvementMatchups[improvementStage];
-    let left = matchup.a, right = matchup.b, leftIcon = matchup.iconA, rightIcon = matchup.iconB;
-    if (improvementStage === 1) { left = improvementWinner || 'Understand students better'; leftIcon = improvementWinner === 'Understand students better' ? 'fa-brain' : 'fa-clock'; }
-    if (improvementStage === 2) { left = improvementWinner; leftIcon = improvementWinner === 'Save time' ? 'fa-clock' : 'fa-brain'; }
-    if (improvementStage === 3) { left = improvementWinner; leftIcon = improvementWinner === 'Reduce parent questions' ? 'fa-message' : 'fa-clock'; }
-    const stepNames = ['Round 1 · Quarterfinal', 'Round 2 · Semifinal', 'Round 3 · Semifinal', 'Round 4 · Final'];
-    return `<div class="card"><div class="tournament-question"><i class="fas fa-chart-line"></i> Which improvement sounds most valuable to you?</div><div class="matchup-label">${stepNames[improvementStage]} · Value Showdown</div><div class="matchup-card"><div class="vs-row"><div class="vs-option" data-matchup-type="improvement" data-choice="left"><i class="fas ${leftIcon}"></i><strong>${left}</strong></div><div class="vs-middle">VS</div><div class="vs-option" data-matchup-type="improvement" data-choice="right"><i class="fas ${rightIcon}"></i><strong>${right}</strong></div></div></div><div class="multi-hint" style="justify-content:center;"><i class="fas fa-hand-pointer"></i> Tap the improvement that matters more to you</div></div>`;
+
+  const matchup = improvementMatchups[improvementStage];
+
+  let left;
+  let right;
+
+  if (improvementStage === 0) {
+    left = matchup.a;
+    right = matchup.b;
   }
+
+  if (improvementStage === 1) {
+    left = improvementWinner;
+    right = matchup.b;
+  }
+
+  if (improvementStage === 2) {
+    left = improvementWinner;
+    right = matchup.b;
+  }
+
+  if (improvementStage === 3) {
+    left = improvementWinner;
+    right = matchup.b;
+  }
+
+  const leftIcon = getImprovementIcon(left);
+  const rightIcon = getImprovementIcon(right);
+
+  const stepNames = [
+    'Round 1 · Quarterfinal',
+    'Round 2 · Semifinal',
+    'Round 3 · Semifinal',
+    'Round 4 · Final'
+  ];
+
+  return `
+  <div class="card">
+    <div class="tournament-question">
+      <i class="fas fa-chart-line"></i>
+      Which improvement sounds most valuable to you?
+    </div>
+
+    <div class="matchup-label">
+      ${stepNames[improvementStage]} · Value Showdown
+    </div>
+
+    <div class="matchup-card">
+      <div class="vs-row">
+
+        <div class="vs-option"
+             data-matchup-type="improvement"
+             data-choice="left">
+
+          <i class="fas ${leftIcon}"></i>
+          <strong>${left}</strong>
+        </div>
+
+        <div class="vs-middle">VS</div>
+
+        <div class="vs-option"
+             data-matchup-type="improvement"
+             data-choice="right">
+
+          <i class="fas ${rightIcon}"></i>
+          <strong>${right}</strong>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="multi-hint" style="justify-content:center;">
+      <i class="fas fa-hand-pointer"></i>
+      Tap the improvement that matters more to you
+    </div>
+  </div>`;
+}
 
   function handleImprovementTournamentSelection(chosenValue) {
     improvementWinner = chosenValue;
@@ -685,7 +340,7 @@
   }
 
   function renderScreenContent(screen) {
-    if (screen.type === 'welcome') return `<div class="card"><h2>Tutor Growth Assessment 2026</h2><div class="welcome-icon"><i class="fas fa-chalkboard-user"></i></div><div class="welcome-text">Most tutors focus on teaching, but small improvements in student tracking, parent communication, and retention can create significant long-term growth.</div><div class="welcome-text">Take this quick assessment to discover your biggest growth opportunities.</div><div class="benefits-list"><div class="benefit-item"><i class="far fa-clock"></i> <span>Takes less than 3 minutes</span></div><div class="benefit-item"><i class="fas fa-chart-line"></i> <span>Personalized Tutor Growth Snapshot</span></div><div class="benefit-item"><i class="fas fa-rocket"></i> <span>Early access to upcoming tutor tools</span></div></div><button class="next-btn" id="startWelcomeBtn" style="background:#2DD4BF; display:inline-flex; width:auto; padding:10px 24px; margin:0 auto;">Start Assessment <i class="fas fa-arrow-right"></i></button></div>`;
+    if (screen.type === 'welcome') return `<div class="card"><h2>Tutor Growth Assessment 2026</h2><div class="welcome-icon"><i class="fas fa-chalkboard-user"></i></div><div class="welcome-text">Most tutors focus on teaching, but small improvements in student tracking, parent communication, and retention can create significant long-term growth.</div><div class="welcome-text">Take this quick assessment to discover your biggest growth opportunities and compare your workflow with other tutors.</div><div class="benefits-list"><div class="benefit-item"><i class="far fa-clock"></i> <span>Takes less than 3 minutes</span></div><div class="benefit-item"><i class="fas fa-chart-line"></i> <span>Personalized Tutor Growth Snapshot</span></div><div class="benefit-item"><i class="fas fa-rocket"></i> <span>Early access to upcoming tutor tools</span></div></div><button class="next-btn" id="startWelcomeBtn" style="background:#2DD4BF; display:inline-flex; width:auto; padding:12px 28px; margin:0 auto;">Start Assessment <i class="fas fa-arrow-right"></i></button></div>`;
     if (screen.type === 'single') {
       const selected = answers[screen.key];
       return `<div class="card"><div class="question-text"><i class="fas ${screen.icon}"></i> ${screen.question}</div><div class="options-grid">${screen.options.map(opt => `<div class="option-btn ${selected === opt ? 'selected' : ''}" data-value="${opt}"><i class="fas ${getOptionIcon(screen.id, opt)}"></i><span>${opt}</span>${selected === opt ? '<i class="fas fa-check-circle check-icon"></i>' : ''}</div>`).join('')}</div><div class="reset-btn" data-reset="true"><i class="fas fa-undo-alt"></i> Reset selection</div></div>`;
@@ -696,27 +351,27 @@
     }
     if (screen.type === 'rating') {
       const ratingVal = answers.confidence;
-      return `<div class="card"><div class="question-text"><i class="fas fa-chart-simple"></i> ${screen.question}</div><div class="rating-scale">${screen.range.map(r => `<div class="rating-btn ${ratingVal === r ? 'selected' : ''}" data-rating="${r}">${r}<br><span style="font-size:0.55rem; font-weight:normal;">${screen.labels[r-1]}</span></div>`).join('')}</div><div class="reset-btn" data-reset="true"><i class="fas fa-undo-alt"></i> Reset</div></div>`;
+      return `<div class="card"><div class="question-text"><i class="fas fa-chart-simple"></i> ${screen.question}</div><div class="rating-scale">${screen.range.map(r => `<div class="rating-btn ${ratingVal === r ? 'selected' : ''}" data-rating="${r}">${r}<br><span style="font-size:0.6rem; font-weight:normal;">${screen.labels[r-1]}</span></div>`).join('')}</div><div class="reset-btn" data-reset="true"><i class="fas fa-undo-alt"></i> Reset</div></div>`;
     }
     if (screen.type === 'improvementTournament') return renderImprovementTournament();
     if (screen.type === 'result') {
       const insight = generateDynamicInsight();
-      return `<div class="card"><h2>✨ Your Tutor Growth Snapshot</h2><div class="insight-card"><i class="fas fa-bullseye"></i> <strong>Your Top Goals</strong><br>→ ${answers.goals.join(', ') || 'Better Student Results'}</div><div class="insight-card"><i class="fas fa-wand-magic"></i> <strong>Your Magic Fix</strong><br>→ ${answers.magicFix || 'Better student results'}</div><div class="insight-card"><i class="fas fa-head-side-vr"></i> <strong>Biggest Challenges</strong><br>→ ${answers.headaches.join(', ') || 'Tracking Progress'}</div><div class="insight-card"><i class="fas fa-toolbox"></i> <strong>Current Tool</strong><br>→ ${answers.managementTool || 'Not specified'}</div><div class="insight-card"><i class="fas fa-chart-simple"></i> <strong>Confidence Level</strong><br>→ ${answers.confidence ? ['Usually notice after exams','Sometimes see early signs','Moderately confident','Often identify early','Usually identify very early'][answers.confidence-1] : 'Moderate'}</div><div class="insight-card"><i class="fas fa-chart-line"></i> <strong>Growth Opportunity</strong><br>${insight.growthOpportunity}</div><div class="insight-card"><i class="fas fa-lightbulb"></i> <strong>Recommended Focus</strong><br>${insight.recommendedFocus}</div><div style="margin-top:10px; background:#0C1535; border-radius:18px; padding:8px; font-size:0.75rem;">✨ Tutors with similar student counts selected "${answers.improvementWinner || 'Student understanding'}" as their top priority.</div><button class="next-btn" id="continueToEarlyAccess" style="margin-top:12px;">Continue →</button></div>`;
+      return `<div class="card"><h2>✨ Your Tutor Growth Snapshot</h2><div class="insight-card"><i class="fas fa-bullseye"></i> <strong>Your Top Goals</strong><br>→ ${answers.goals.join(', ') || 'Better Student Results'}</div><div class="insight-card"><i class="fas fa-wand-magic"></i> <strong>Your Magic Fix</strong><br>→ ${answers.magicFix || 'Better student results'}</div><div class="insight-card"><i class="fas fa-head-side-vr"></i> <strong>Biggest Challenges</strong><br>→ ${answers.headaches.join(', ') || 'Tracking Progress'}</div><div class="insight-card"><i class="fas fa-toolbox"></i> <strong>Current Tool</strong><br>→ ${answers.managementTool || 'Not specified'}</div><div class="insight-card"><i class="fas fa-chart-simple"></i> <strong>Confidence Level</strong><br>→ ${answers.confidence ? ['Usually notice after exams','Sometimes see early signs','Moderately confident','Often identify early','Usually identify very early'][answers.confidence-1] : 'Moderate'}</div><div class="insight-card"><i class="fas fa-chart-line"></i> <strong>Growth Opportunity</strong><br>${insight.growthOpportunity}</div><div class="insight-card"><i class="fas fa-lightbulb"></i> <strong>Recommended Focus</strong><br>${insight.recommendedFocus}</div><div style="margin-top:12px; background:#0C1535; border-radius:20px; padding:10px; font-size:0.8rem;">✨ Tutors with similar student counts selected "${answers.improvementWinner || 'Student understanding'}" as their top priority.</div><button class="next-btn" id="continueToEarlyAccess" style="margin-top:16px;">Continue →</button></div>`;
     }
     if (screen.type === 'earlyAccess') {
       const selected = answers.earlyAccess.interested;
-      return `<div class="card"><h2>Help Shape The Future Of Tutoring</h2><p style="margin:10px 0; font-size:0.8rem;">We're inviting a small group of tutors to test upcoming tools and provide direct feedback.</p><div style="background:#0C1535; border-radius:18px; padding:8px; margin-bottom:12px; font-size:0.75rem;"><i class="fas fa-gem"></i> Free Pilot Access &nbsp; <i class="fas fa-headset"></i> Personalized Support &nbsp; <i class="fas fa-comment"></i> Direct Influence</div><div class="options-grid"><div class="option-btn ${selected === 'Yes' ? 'selected' : ''}" data-ea="Yes"><i class="fas fa-thumbs-up"></i> Yes, reserve my spot</div><div class="option-btn ${selected === 'Maybe' ? 'selected' : ''}" data-ea="Maybe"><i class="fas fa-pause"></i> Maybe, tell me more</div><div class="option-btn ${selected === 'No' ? 'selected' : ''}" data-ea="No"><i class="fas fa-times"></i> No thanks</div></div></div>`;
+      return `<div class="card"><h2>Help Shape The Future Of Tutoring</h2><p style="margin:12px 0; font-size:0.85rem;">We're inviting a small group of tutors to test upcoming tools and provide direct feedback.</p><div style="background:#0C1535; border-radius:20px; padding:10px; margin-bottom:14px; font-size:0.8rem;"><i class="fas fa-gem"></i> Free Pilot Access &nbsp; <i class="fas fa-headset"></i> Personalized Support &nbsp; <i class="fas fa-comment"></i> Direct Influence</div><div class="options-grid"><div class="option-btn ${selected === 'Yes' ? 'selected' : ''}" data-ea="Yes"><i class="fas fa-thumbs-up"></i> Yes, reserve my spot</div><div class="option-btn ${selected === 'Maybe' ? 'selected' : ''}" data-ea="Maybe"><i class="fas fa-pause"></i> Maybe, tell me more</div><div class="option-btn ${selected === 'No' ? 'selected' : ''}" data-ea="No"><i class="fas fa-times"></i> No thanks</div></div></div>`;
     }
     if (screen.type === 'contact') {
       const isPilot = answers.earlyAccess.interested === 'Yes' || answers.earlyAccess.interested === 'Maybe';
-      return `<div class="card"><h2>🎯 Claim Your Early Access Spot</h2><p style="margin:5px 0 10px 0; font-size:0.75rem; color:#7F9BCB;">${isPilot ? 'Reserve your spot for free pilot access. We\'ll send your growth snapshot and updates via WhatsApp.' : 'Leave your details to receive your growth snapshot.'}</p><input type="text" id="contactName" placeholder="Full name ${isPilot ? '*required*' : ''}" value="${escapeHtml(answers.contact.name)}"><input type="tel" id="contactWhatsapp" placeholder="WhatsApp number ${isPilot ? '*required*' : ''}" value="${escapeHtml(answers.contact.whatsapp)}"><input type="text" id="contactCity" placeholder="City" value="${escapeHtml(answers.contact.city)}"><input type="text" id="contactStudentCount" placeholder="Student count" value="${escapeHtml(answers.contact.studentCount)}"><div class="reset-btn" data-reset-contact="true"><i class="fas fa-undo-alt"></i> Clear all fields</div></div>`;
+      return `<div class="card"><h2>🎯 Claim Your Early Access Spot</h2><p style="margin:6px 0 14px 0; font-size:0.8rem; color:#7F9BCB;">${isPilot ? 'Reserve your spot for free pilot access. We\'ll send your growth snapshot and updates via WhatsApp.' : 'Leave your details to receive your growth snapshot.'}</p><input type="text" id="contactName" placeholder="Full name ${isPilot ? '*required*' : ''}" value="${escapeHtml(answers.contact.name)}"><input type="tel" id="contactWhatsapp" placeholder="WhatsApp number ${isPilot ? '*required*' : ''}" value="${escapeHtml(answers.contact.whatsapp)}"><input type="text" id="contactCity" placeholder="City" value="${escapeHtml(answers.contact.city)}"><input type="text" id="contactStudentCount" placeholder="Student count" value="${escapeHtml(answers.contact.studentCount)}"><div class="reset-btn" data-reset-contact="true"><i class="fas fa-undo-alt"></i> Clear all fields</div></div>`;
     }
     if (screen.type === 'openQuestion') {
-      return `<div class="card"><h2>One Last Question <span class="optional-badge">Optional</span></h2><div class="question-text" style="font-size:1rem;"><i class="fas fa-comment-dots"></i> What's one thing you wish existed for tutors today?</div><textarea id="wishText" rows="2" placeholder="Your honest answer could help shape what we build... (optional)">${escapeHtml(answers.wish)}</textarea><div class="reset-btn" data-reset-wish="true"><i class="fas fa-undo-alt"></i> Clear</div><p style="font-size:0.65rem; color:#5EEAD4; margin-top:6px;"><i class="fas fa-gem"></i> This is how we discover what no survey question asks</p></div>`;
+      return `<div class="card"><h2>One Last Question <span class="optional-badge">Optional</span></h2><div class="question-text" style="font-size:1.1rem;"><i class="fas fa-comment-dots"></i> What's one thing you wish existed for tutors today?</div><textarea id="wishText" rows="2" placeholder="Your honest answer could help shape what we build... (optional)">${escapeHtml(answers.wish)}</textarea><div class="reset-btn" data-reset-wish="true"><i class="fas fa-undo-alt"></i> Clear</div><p style="font-size:0.7rem; color:#5EEAD4; margin-top:8px;"><i class="fas fa-gem"></i> This is how we discover what no survey question asks</p></div>`;
     }
     if (screen.type === 'thankYou') {
       const optedIn = answers.earlyAccess.interested === 'Yes' || answers.earlyAccess.interested === 'Maybe';
-      return `<div class="card"><h2>Thank You!</h2><div class="welcome-icon"><i class="fas fa-check-circle" style="color:#2DD4BF;"></i></div><p style="margin:8px 0; font-size:0.85rem;">Your responses have been recorded.</p><p style="margin-bottom:8px; font-size:0.85rem;">We'll use this to better understand tutor challenges and build tools that actually help.</p>${optedIn ? '<p style="font-size:0.75rem; background:#0C1535; padding:8px; border-radius:16px;"><i class="fab fa-whatsapp"></i> If you opted into early access, we\'ll contact you via WhatsApp with updates and pilot opportunities.</p>' : '<p style="font-size:0.75rem;">Thank you for your valuable feedback!</p>'}<p style="margin-top:10px; font-size:0.85rem;">Have a great teaching week.</p></div>`;
+      return `<div class="card"><h2>Thank You!</h2><div class="welcome-icon"><i class="fas fa-check-circle" style="color:#2DD4BF;"></i></div><p style="margin:12px 0; font-size:0.9rem;">Your responses have been recorded.</p><p style="margin-bottom:12px; font-size:0.9rem;">We'll use this to better understand tutor challenges and build tools that actually help.</p>${optedIn ? '<p style="font-size:0.85rem; background:#0C1535; padding:10px; border-radius:20px;"><i class="fab fa-whatsapp"></i> If you opted into early access, we\'ll contact you via WhatsApp with updates and pilot opportunities.</p>' : '<p style="font-size:0.85rem;">Thank you for your valuable feedback!</p>'}<p style="margin-top:14px; font-size:0.9rem;">Have a great teaching week.</p></div>`;
     }
     return '';
   }
@@ -748,7 +403,6 @@
     track.innerHTML = '';
     screens.forEach(screen => { const div = document.createElement('div'); div.className = 'slide'; div.innerHTML = renderScreenContent(screen); track.appendChild(div); });
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    if (document.querySelector('.slides-container')) document.querySelector('.slides-container').scrollTop = 0;
     setTimeout(() => {
       document.querySelectorAll('.option-btn[data-value]').forEach(btn => { btn.onclick = (e) => { e.stopPropagation(); handleSelection(btn); }; });
       document.querySelectorAll('.rating-btn').forEach(btn => { btn.onclick = () => { answers.confidence = parseInt(btn.dataset.rating); renderSlide(); }; });
@@ -763,7 +417,7 @@
       const wishText = document.getElementById('wishText'); if(wishText) wishText.oninput = (e) => { answers.wish = e.target.value; };
       updateProgress(); updateNextButton();
     }, 10);
-    if (matchupTransitionEffect) { const mc = document.querySelector('.matchup-card'); if(mc) { mc.classList.add('matchup-transition'); setTimeout(() => mc.classList.remove('matchup-transition'), 400); } matchupTransitionEffect = false; }
+    if (matchupTransitionEffect) { const mc = document.querySelector('.matchup-card'); if(mc) { mc.classList.add('matchup-transition'); setTimeout(() => mc.classList.remove('matchup-transition'), 500); } matchupTransitionEffect = false; }
   }
 
   function handleNext() {
